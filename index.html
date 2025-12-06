@@ -9,133 +9,172 @@
     content="Téléchargez l'application Ayak en avant-première et testez la marketplace pensée pour le Burkina."
   />
   <style>
+    :root {
+      --ayak-primary: #1b3c3e;
+      --ayak-accent: #f4a261;
+      --ayak-text: #2b323b;
+      --ayak-text-secondary: #7a3733;
+      --ayak-bg: #fdf3e2;        /* beige background */
+      --ayak-card-bg: #ffffff;   /* white card */
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
       padding: 0;
-      background: #0f172a;
-      color: #e5e7eb;
+      background: var(--ayak-bg);
+      color: var(--ayak-text);
       display: flex;
       justify-content: center;
     }
+
     .container {
-      max-width: 600px;
+      max-width: 640px;
       width: 100%;
       padding: 24px 16px 40px;
     }
+
     .card {
-      background: rgba(15, 23, 42, 0.9);
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
-      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: var(--ayak-card-bg);
+      border-radius: 24px;
+      padding: 24px 22px 28px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(244, 162, 97, 0.25);
     }
+
+    .logo {
+      display: block;
+      margin: 0 auto 12px;
+      max-width: 120px;
+    }
+
     h1 {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       margin-top: 0;
       margin-bottom: 8px;
-      color: #f9fafb;
+      color: var(--ayak-primary);
+      text-align: left;
     }
+
     h2 {
       font-size: 1.1rem;
       margin-top: 24px;
       margin-bottom: 8px;
-      color: #e5e7eb;
+      color: var(--ayak-text-secondary);
     }
+
     p {
       margin-top: 4px;
       margin-bottom: 10px;
-      line-height: 1.5;
-      color: #cbd5f5;
+      line-height: 1.6;
+      color: var(--ayak-text);
     }
+
     .badge {
       display: inline-block;
       font-size: 0.75rem;
-      padding: 4px 10px;
+      padding: 4px 12px;
       border-radius: 999px;
-      background: rgba(56, 189, 248, 0.15);
-      color: #7dd3fc;
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      margin-bottom: 14px;
+      background: rgba(244, 162, 97, 0.12);
+      color: var(--ayak-text-secondary);
+      border: 1px solid rgba(244, 162, 97, 0.6);
+      margin-bottom: 10px;
     }
+
     .download-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 18px;
+      padding: 12px 20px;
       border-radius: 999px;
       border: none;
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
       text-decoration: none;
-      margin-top: 10px;
+      margin-top: 12px;
       margin-bottom: 4px;
-      background: linear-gradient(135deg, #22c55e, #22d3ee);
-      color: #0f172a;
-      box-shadow: 0 14px 30px rgba(34, 197, 94, 0.4);
+      background: linear-gradient(135deg, var(--ayak-primary), var(--ayak-accent));
+      color: #ffffff;
+      box-shadow: 0 12px 24px rgba(27, 60, 62, 0.35);
       transition: transform 0.08s ease, box-shadow 0.08s ease, opacity 0.12s ease;
     }
+
     .download-btn span {
       margin-left: 8px;
       font-size: 0.9rem;
-      opacity: 0.9;
+      opacity: 0.95;
     }
+
     .download-btn:active {
       transform: translateY(2px);
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.9);
-      opacity: 0.9;
+      box-shadow: 0 6px 14px rgba(27, 60, 62, 0.45);
+      opacity: 0.96;
     }
+
     .apk-note {
-      font-size: 0.8rem;
-      color: #9ca3af;
-      margin-top: 2px;
+      font-size: 0.82rem;
+      color: rgba(43, 50, 59, 0.8);
+      margin-top: 4px;
       margin-bottom: 12px;
     }
+
     ol {
       padding-left: 20px;
       margin-top: 6px;
     }
+
     li {
       margin-bottom: 6px;
     }
+
     .warning {
-      background: rgba(248, 113, 113, 0.1);
-      border-radius: 12px;
+      background: rgba(244, 162, 97, 0.1);
+      border-radius: 14px;
       padding: 10px 12px;
-      border: 1px solid rgba(248, 113, 113, 0.4);
-      font-size: 0.85rem;
-      color: #fecaca;
-      margin-top: 12px;
+      border: 1px solid rgba(244, 162, 97, 0.7);
+      font-size: 0.86rem;
+      color: var(--ayak-text-secondary);
+      margin-top: 14px;
     }
+
     .footer {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       margin-top: 18px;
-      color: #9ca3af;
+      color: rgba(43, 50, 59, 0.7);
     }
+
     .lang-switch {
       font-size: 0.75rem;
       text-align: right;
       margin-bottom: 8px;
-      color: #9ca3af;
+      color: rgba(43, 50, 59, 0.7);
     }
+
     .lang-switch span {
       opacity: 0.7;
     }
+
     .lang-switch strong {
-      color: #e5e7eb;
+      color: var(--ayak-text);
     }
+
     .section-en {
       margin-top: 20px;
       padding-top: 14px;
-      border-top: 1px dashed rgba(148, 163, 184, 0.4);
+      border-top: 1px dashed rgba(244, 162, 97, 0.6);
     }
+
     @media (max-width: 480px) {
       .card {
-        padding: 18px;
+        padding: 20px 16px 24px;
       }
       h1 {
-        font-size: 1.45rem;
+        font-size: 1.6rem;
       }
     }
   </style>
@@ -147,6 +186,9 @@
         <strong>FR</strong> / <span>EN</span>
       </div>
 
+      <!-- Quand tu auras ton logo hébergé, remplace SRC par son URL -->
+      <!-- <img src="https://ayakbf.com/logo.png" alt="Logo Ayak" class="logo" /> -->
+
       <span class="badge">Accès anticipé · Bêta test</span>
       <h1>Installer Ayak sur votre téléphone</h1>
       <p>
@@ -155,12 +197,15 @@
         vous pouvez la tester en avant-première en téléchargeant le fichier APK officiel ci-dessous.
       </p>
 
-      <a class="download-btn" href="/Ayak-v1.apk">
+      <a class="download-btn" href="https://drive.google.com/uc?export=download&id=1BTFBSnibaRRH_6g2xs1KL8fFbJbgmXKw&confirm=t">
         📲 Télécharger Ayak (APK)
         <span>Android uniquement</span>
       </a>
       <div class="apk-note">
-        Taille : ≈ XX Mo · Source officielle : Ayak
+        Taille : ≈ 113 Mo · Source officielle : Ayak.<br />
+        Google Drive peut afficher un message indiquant qu’il ne peut pas analyser
+        le fichier car il est volumineux. C’est normal : cliquez sur
+        <strong>« Télécharger quand même »</strong>.
       </div>
 
       <h2>Comment installer l’APK ?</h2>
